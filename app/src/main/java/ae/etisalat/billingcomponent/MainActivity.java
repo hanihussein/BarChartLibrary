@@ -1,18 +1,9 @@
 package ae.etisalat.billingcomponent;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.ClipDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,47 +12,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final VerticalProgressBar progressBar = findViewById(R.id.progressBar);
+        final BarGraphComponentView barGraphComponentView = findViewById(R.id.bc_bills);
 
-        ShapeDrawable shape =
-                new ShapeDrawable(new RoundRectShape(new float[]{0, 0, 20, 20, 20, 20, 0, 0}, null, null));
+        ArrayList<BarChartEntry> billBarChartEntries = new ArrayList<>();
 
-        shape.getPaint().setStyle(Paint.Style.FILL);
-        shape.getPaint().setColor(getResources().getColor(R.color.green_bright));
+        billBarChartEntries.add(new BarChartEntry("Jan", 1000, 700, getResources().getColor(R.color.green_bright)
+                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
-        ShapeDrawable progressDrawable =
-                new ShapeDrawable(new RoundRectShape(new float[]{0, 0, 20, 20, 20, 20, 0, 0}, null, null));
+        billBarChartEntries.add(new BarChartEntry("Feb", 800, 300, getResources().getColor(R.color.green_bright)
+                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
-        progressDrawable.getPaint().setColor(getResources().getColor(R.color.green_dark));
-        progressDrawable.getPaint().setStyle(Paint.Style.FILL);
-        ClipDrawable progress = new ClipDrawable(progressDrawable, Gravity.START, ClipDrawable.HORIZONTAL);
+        billBarChartEntries.add(new BarChartEntry("Mar", 900, 650, getResources().getColor(R.color.green_bright)
+                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
-        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{
-                shape, progress});
+        billBarChartEntries.add(new BarChartEntry("Apri", 500, 500, getResources().getColor(R.color.green_bright)
+                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
-        progressBar.setProgressDrawable(layerDrawable);
+        billBarChartEntries.add(new BarChartEntry("May", 200, 160, getResources().getColor(R.color.green_bright)
+                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
-        progressBar.setEnabled(false);
+        billBarChartEntries.add(new BarChartEntry("Jun", 775, 700, getResources().getColor(R.color.green_bright)
+                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
-        progressBar.setProgress(60);
-        progressBar.setMax(100);
-
-
-        findViewById(R.id.pro_component_view).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setCornerRadii(new float[] { 15, 15, 15, 15, 15, 15, 15, 15 });
-                gradientDrawable.setShape(GradientDrawable.RECTANGLE);
-                gradientDrawable.setColor(Color.WHITE);
-                gradientDrawable.setStroke(3, Color.LTGRAY);
-
-                findViewById(R.id.pro_component_view).setBackgroundDrawable(gradientDrawable);
-
-            }
-        });
-
+        barGraphComponentView.drawChart(billBarChartEntries);
 
 //        progressBar.getBackground().setColorFilter(
 //                getResources().getColor(R.color.colorAccent), android.graphics.PorterDuff.Mode.SRC_IN);
