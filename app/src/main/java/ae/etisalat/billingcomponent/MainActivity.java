@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
         final BarGraphComponentView barGraphComponentView = findViewById(R.id.bc_bills);
 
-        barGraphComponentView.setBackgroundHorizontalLinesColor(getResources().getColor(R.color.green_bright));
+        barGraphComponentView.setBackgroundHorizontalLinesColor(getResources().getColor(R.color.light_gray));
         barGraphComponentView.setBackgroundHorizontalLinesWidth(2);
-        barGraphComponentView.setBackgroundValuesTextSize(20);
+        barGraphComponentView.setBackgroundValuesTextSize(30);
 
         ArrayList<BarChartEntry> billBarChartEntries = new ArrayList<>();
 
@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         billBarChartEntries.add(new BarChartEntry("Feb", 800, 300, getResources().getColor(R.color.green_bright)
                 , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
-        billBarChartEntries.add(new BarChartEntry("Mar", 1400, 650, getResources().getColor(R.color.green_bright)
+        billBarChartEntries.add(new BarChartEntry("Mar", 1400, 1200, getResources().getColor(R.color.green_bright)
                 , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
 
         billBarChartEntries.add(new BarChartEntry("Apri", 500, 500, getResources().getColor(R.color.green_bright)
-                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
+                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_INACTIVE));
 
         billBarChartEntries.add(new BarChartEntry("May", 200, 160, getResources().getColor(R.color.green_bright)
                 , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));

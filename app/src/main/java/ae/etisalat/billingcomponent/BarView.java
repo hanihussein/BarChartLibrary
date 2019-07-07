@@ -71,11 +71,12 @@ public class BarView extends ConstraintLayout {
 
         title.setText(barChartEntry.getTitle());
 
-        ShapeDrawable shape =
+        ShapeDrawable backgroundDrawable =
                 new ShapeDrawable(new RoundRectShape(new float[]{0, 0, 20, 20, 20, 20, 0, 0}, null, null));
 
-        shape.getPaint().setStyle(Paint.Style.FILL);
-        shape.getPaint().setColor(barChartEntry.getMaxValueColor());
+        backgroundDrawable.getPaint().setStyle(Paint.Style.FILL);
+        backgroundDrawable.getPaint().setColor(barChartEntry.getMaxValueColor());
+
 
         ShapeDrawable progressDrawable =
                 new ShapeDrawable(new RoundRectShape(new float[]{0, 0, 20, 20, 20, 20, 0, 0}, null, null));
@@ -88,8 +89,10 @@ public class BarView extends ConstraintLayout {
 
         if (barChartEntry.getBillingModeType() == BillingModeType.PAYMENT_MODE_ACTIVE) {
 
+            progressBar.setBackgroundDrawable(backgroundDrawable);
+
             layerDrawable = new LayerDrawable(new Drawable[]{
-                    shape, progress});
+                    progress});
 
         } else if (barChartEntry.getBillingModeType() == BillingModeType.PAYMENT_MODE_INACTIVE) {
 

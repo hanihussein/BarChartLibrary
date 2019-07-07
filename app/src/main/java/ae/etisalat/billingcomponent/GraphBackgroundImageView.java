@@ -66,34 +66,41 @@ public class GraphBackgroundImageView extends android.support.v7.widget.AppCompa
 
 //            int roundedMaxValue = ;
 
-            int roundedLineTextValueValue = MathUtil.round(maxValue / 4);/*(( + 99) / 100) * 100;*/
+            int roundedLineTextValueValue = maxValue;/*(( + 99) / 100) * 100;*/
 
-            int height = ((View) getParent()).getHeight() -
+            int height = ((View) getParent()).getHeight()
+                    - ((ConstraintLayout.LayoutParams) getLayoutParams()).bottomMargin;
 
-                    ((ConstraintLayout.LayoutParams) getLayoutParams()).bottomMargin;
+            int linesSpacesValue = height / 4;
 
-            int linesSpacesValue = height / 5;
+            float linesY = 0;
+
+            float textY = 0;
 
             for (int i = 0; i < 5; i++) {
 
                 if (i == 0) {
 
-                    canvas.drawLine(0, 0, getMeasuredWidth(), height, mBitmapPaint);
+                    canvas.drawLine(0, convertDpToPixel(10, getContext()), getMeasuredWidth(),
+                            convertDpToPixel(10, getContext())
+                            , mBitmapPaint);
+
+                    canvas.drawText(roundedLineTextValueValue + "", 0, convertDpToPixel(8, getContext()), mBitmapPaint);
+
+                } else {
+
+                    linesY += linesSpacesValue;
+
+                    canvas.drawLine(0, linesY, getMeasuredWidth(), linesY, mBitmapPaint);
+
+                    if (i != 4) {
+                        textY = linesY - (int) convertDpToPixel(2, getContext());
+
+                        canvas.drawText(roundedLineTextValueValue + "", 0, textY, mBitmapPaint);
+                    }
                 }
 
-                canvas.drawLine(0, 0, getMeasuredWidth(), height - linesSpacesValue, mBitmapPaint);
-
-                int textY = height - (int) convertDpToPixel(2, getContext());
-
-                if (i != 4) {
-
-                    canvas.drawText(roundedLineTextValueValue + "", 0, textY, mBitmapPaint);
-
-                    roundedLineTextValueValue += roundedLineTextValueValue;
-
-                }
-
-                height -= linesSpacesValue;
+                roundedLineTextValueValue -= MathUtil.round(maxValue / 4);
 
             }
         }
