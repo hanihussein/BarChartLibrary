@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/pro_component_view"
     android:layout_width="60dp"
-    android:padding="10dp"
-    android:layout_height="205dp">
+    android:layout_height="240dp">
 
 
     <ae.etisalat.billingcomponent.VerticalProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="8dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="15dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="40dp"
         android:max="100"
         android:progress="45"
-        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+       />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="Dec"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

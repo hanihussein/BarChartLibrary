@@ -10,6 +10,8 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+import ae.etisalat.billingcomponent.models.BarChartEntry;
+
 public class BarGraphComponentView extends ConstraintLayout {
 
     public interface onBarClickListener {
@@ -19,11 +21,17 @@ public class BarGraphComponentView extends ConstraintLayout {
 
     private RecyclerView rc_bills;
 
+    private GraphBackgroundImageView graphBackgroundImageView;
+
     private onBarClickListener onBarClickListener;
 
     private BillingModeType billingModeType;
 
     private ArrayList<BarChartEntry> barChartEntries;
+
+    private int backgroundHorizontalLinesColor = 0xFF888888;
+    private int backgroundHorizontalLinesWidth = 1;
+    private int backgroundValuesTextSize = 10;
 
     public BarGraphComponentView(Context context) {
         super(context);
@@ -50,10 +58,24 @@ public class BarGraphComponentView extends ConstraintLayout {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rootView = inflater.inflate(R.layout.billing_component_view, this, true);
 
+        graphBackgroundImageView = rootView.findViewById(R.id.img_chart_background);
+
         rc_bills = rootView.findViewById(R.id.rc_bills);
         rc_bills.setHasFixedSize(true);
         rc_bills.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
+    }
+
+    public void setBackgroundHorizontalLinesColor(int backgroundHorizontalLinesColor) {
+        this.backgroundHorizontalLinesColor = backgroundHorizontalLinesColor;
+    }
+
+    public void setBackgroundHorizontalLinesWidth(int backgroundHorizontalLinesWidth) {
+        this.backgroundHorizontalLinesWidth = backgroundHorizontalLinesWidth;
+    }
+
+    public void setBackgroundValuesTextSize(int backgroundValuesTextSize) {
+        this.backgroundValuesTextSize = backgroundValuesTextSize;
     }
 
     public void drawChart(final ArrayList<BarChartEntry> barChartEntries) {
@@ -67,7 +89,14 @@ public class BarGraphComponentView extends ConstraintLayout {
             if (barChartEntry.getMaxValue() > maxBarValue)
                 maxBarValue = barChartEntry.getMaxValue();
         }
-        rc_bills.setAdapter(new BarsChartAdapter(barChartEntries, maxBarValue));
+
+        int roundedMaxValue = MathUtil.round(maxBarValue + (maxBarValue * 10 / 100));
+
+        graphBackgroundImageView.setBackgroundDrawInfo(roundedMaxValue, backgroundHorizontalLinesColor,
+                backgroundHorizontalLinesWidth, backgroundValuesTextSize);
+        graphBackgroundImageView.invalidate();
+
+        rc_bills.setAdapter(new BarsChartAdapter(barChartEntries, roundedMaxValue));
     }
 
     public void setBillingModeType(BillingModeType billingModeType) {

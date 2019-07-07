@@ -14,6 +14,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import ae.etisalat.billingcomponent.models.BarChartEntry;
+
 public class BarView extends ConstraintLayout {
 
     public interface onBarClickListener {
@@ -107,13 +109,7 @@ public class BarView extends ConstraintLayout {
                 if (onBarClickListener != null)
                     onBarClickListener.onBarClick(barChartEntry);
 
-//                GradientDrawable gradientDrawable = new GradientDrawable();
-//                gradientDrawable.setCornerRadii(new float[]{15, 15, 15, 15, 15, 15, 15, 15});
-//                gradientDrawable.setShape(GradientDrawable.RECTANGLE);
-//                gradientDrawable.setColor(Color.WHITE);
-//                gradientDrawable.setStroke(3, Color.LTGRAY);
-//
-//                findViewById(R.id.pro_component_view).setBackgroundDrawable(gradientDrawable);
+                findViewById(R.id.pro_component_view).setBackgroundResource(R.drawable.ic_highlight);
 
             }
         });

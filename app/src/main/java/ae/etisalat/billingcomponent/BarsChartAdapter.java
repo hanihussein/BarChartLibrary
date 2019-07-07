@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import ae.etisalat.billingcomponent.models.BarChartEntry;
+
 public class BarsChartAdapter extends RecyclerView.Adapter<BarsChartAdapter.BillViewHolder> {
 
     private ArrayList<BarChartEntry> billBarChartEntries;
@@ -25,7 +27,6 @@ public class BarsChartAdapter extends RecyclerView.Adapter<BarsChartAdapter.Bill
         BarView barView = new BarView(viewGroup.getContext());
 
         int width  = viewGroup.getWidth() / 6 ;
-        int height = (viewGroup.getHeight() * billBarChartEntries.get(i).getMaxValue()) / 100;
 
         barView.setLayoutParams(new RecyclerView.LayoutParams(width, RecyclerView.LayoutParams.MATCH_PARENT));
 
