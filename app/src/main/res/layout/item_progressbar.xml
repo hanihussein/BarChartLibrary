@@ -6,7 +6,7 @@
     android:layout_height="240dp">
 
 
-    <ae.etisalat.billingcomponent.VerticalProgressBar
+    <ae.etisalat.billingcomponent.library.views.VerticalProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="8dp"

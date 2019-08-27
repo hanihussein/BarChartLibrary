@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent;
+package ae.etisalat.billingcomponent.library.views;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -14,7 +14,9 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import ae.etisalat.billingcomponent.models.BarChartEntry;
+import ae.etisalat.billingcomponent.library.models.BillingModeType;
+import ae.etisalat.billingcomponent.R;
+import ae.etisalat.billingcomponent.library.models.BarChartEntry;
 
 public class BarView extends ConstraintLayout {
 
@@ -72,7 +74,7 @@ public class BarView extends ConstraintLayout {
         title.setText(barChartEntry.getTitle());
 
         ShapeDrawable backgroundDrawable =
-                new ShapeDrawable(new RoundRectShape(new float[]{0, 0, 20, 20, 20, 20, 0, 0}, null, null));
+                new ShapeDrawable(new RoundRectShape(new float[]{20, 20, 20, 20, 20, 20, 0, 0}, null, null));
 
         backgroundDrawable.getPaint().setStyle(Paint.Style.FILL);
         backgroundDrawable.getPaint().setColor(barChartEntry.getMaxValueColor());

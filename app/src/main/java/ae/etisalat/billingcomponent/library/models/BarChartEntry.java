@@ -1,6 +1,4 @@
-package ae.etisalat.billingcomponent.models;
-
-import ae.etisalat.billingcomponent.BillingModeType;
+package ae.etisalat.billingcomponent.library.models;
 
 public class BarChartEntry {
     private String title;

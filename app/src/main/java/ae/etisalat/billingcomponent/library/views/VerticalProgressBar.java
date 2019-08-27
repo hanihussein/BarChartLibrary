@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent;
+package ae.etisalat.billingcomponent.library.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

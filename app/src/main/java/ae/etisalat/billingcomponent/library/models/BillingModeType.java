@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent;
+package ae.etisalat.billingcomponent.library.models;
 
 public enum BillingModeType {
 

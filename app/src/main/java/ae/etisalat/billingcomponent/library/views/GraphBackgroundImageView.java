@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent;
+package ae.etisalat.billingcomponent.library.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+
+import ae.etisalat.billingcomponent.library.util.MathUtil;
 
 public class GraphBackgroundImageView extends android.support.v7.widget.AppCompatImageView {
 

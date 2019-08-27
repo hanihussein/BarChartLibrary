@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent;
+package ae.etisalat.billingcomponent.library.views;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
@@ -10,7 +10,11 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import ae.etisalat.billingcomponent.models.BarChartEntry;
+import ae.etisalat.billingcomponent.library.adapters.BarsChartAdapter;
+import ae.etisalat.billingcomponent.library.models.BillingModeType;
+import ae.etisalat.billingcomponent.library.util.MathUtil;
+import ae.etisalat.billingcomponent.R;
+import ae.etisalat.billingcomponent.library.models.BarChartEntry;
 
 public class BarGraphComponentView extends ConstraintLayout {
 

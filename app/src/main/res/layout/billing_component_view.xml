@@ -6,7 +6,7 @@
     android:layout_height="240dp"
     >
 
-    <ae.etisalat.billingcomponent.GraphBackgroundImageView
+    <ae.etisalat.billingcomponent.library.views.GraphBackgroundImageView
         android:id="@+id/img_chart_background"
         android:layout_width="0dp"
         android:layout_height="0dp"

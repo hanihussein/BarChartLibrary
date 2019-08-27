@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import ae.etisalat.billingcomponent.models.BarChartEntry;
+import ae.etisalat.billingcomponent.library.models.BillingModeType;
+import ae.etisalat.billingcomponent.library.views.BarGraphComponentView;
+import ae.etisalat.billingcomponent.library.models.BarChartEntry;
 
 public class MainActivity extends AppCompatActivity {
 

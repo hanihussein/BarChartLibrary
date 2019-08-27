@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent;
+package ae.etisalat.billingcomponent.library.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import ae.etisalat.billingcomponent.models.BarChartEntry;
+import ae.etisalat.billingcomponent.library.models.BillingModeType;
+import ae.etisalat.billingcomponent.library.views.BarView;
+import ae.etisalat.billingcomponent.library.models.BarChartEntry;
 
 public class BarsChartAdapter extends RecyclerView.Adapter<BarsChartAdapter.BillViewHolder> {
 
