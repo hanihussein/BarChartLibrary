@@ -1,13 +1,13 @@
 package ae.etisalat.billingcomponent;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import java.util.ArrayList;
+import com.hani.barchartlib.library.models.BarChartEntry;
+import com.hani.barchartlib.library.models.BillingModeType;
+import com.hani.barchartlib.library.views.BarGraphComponentView;
 
-import ae.etisalat.billingcomponent.library.models.BillingModeType;
-import ae.etisalat.billingcomponent.library.views.BarGraphComponentView;
-import ae.etisalat.billingcomponent.library.models.BarChartEntry;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

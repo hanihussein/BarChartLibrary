@@ -1,15 +1,16 @@
-package ae.etisalat.billingcomponent.library.adapters;
+package com.hani.barchartlib.library.adapters;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hani.barchartlib.library.models.BillingModeType;
+import com.hani.barchartlib.library.views.BarView;
+
 import java.util.ArrayList;
 
-import ae.etisalat.billingcomponent.library.models.BillingModeType;
-import ae.etisalat.billingcomponent.library.views.BarView;
-import ae.etisalat.billingcomponent.library.models.BarChartEntry;
+import com.hani.barchartlib.library.models.BarChartEntry;
 
 public class BarsChartAdapter extends RecyclerView.Adapter<BarsChartAdapter.BillViewHolder> {
 

@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent.library.util;
+package com.hani.barchartlib.library.util;
 
 public class MathUtil {
 

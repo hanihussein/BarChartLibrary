@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent.library.models;
+package com.hani.barchartlib.library.models;
 
 public enum BillingModeType {
 

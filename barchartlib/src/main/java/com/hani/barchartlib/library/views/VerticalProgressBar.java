@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent.library.views;
+package com.hani.barchartlib.library.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,20 +1,20 @@
-package ae.etisalat.billingcomponent.library.views;
+package com.hani.barchartlib.library.views;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import java.util.ArrayList;
 
-import ae.etisalat.billingcomponent.library.adapters.BarsChartAdapter;
-import ae.etisalat.billingcomponent.library.models.BillingModeType;
-import ae.etisalat.billingcomponent.library.util.MathUtil;
-import ae.etisalat.billingcomponent.R;
-import ae.etisalat.billingcomponent.library.models.BarChartEntry;
+import com.hani.barchartlib.R;
+import com.hani.barchartlib.library.adapters.BarsChartAdapter;
+import com.hani.barchartlib.library.models.BillingModeType;
+import com.hani.barchartlib.library.util.MathUtil;
+import com.hani.barchartlib.library.models.BarChartEntry;
 
 public class BarGraphComponentView extends ConstraintLayout {
 

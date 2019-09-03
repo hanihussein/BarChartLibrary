@@ -1,18 +1,18 @@
-package ae.etisalat.billingcomponent.library.views;
+package com.hani.barchartlib.library.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.constraint.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
-import ae.etisalat.billingcomponent.library.util.MathUtil;
+import com.hani.barchartlib.library.util.MathUtil;
 
-public class GraphBackgroundImageView extends android.support.v7.widget.AppCompatImageView {
+public class GraphBackgroundImageView extends androidx.appcompat.widget.AppCompatImageView {
 
     private Paint mBitmapPaint;
     private int maxValue;

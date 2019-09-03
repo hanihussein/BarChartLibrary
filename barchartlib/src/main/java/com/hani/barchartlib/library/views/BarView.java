@@ -1,4 +1,4 @@
-package ae.etisalat.billingcomponent.library.views;
+package com.hani.barchartlib.library.views;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -7,16 +7,16 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import ae.etisalat.billingcomponent.library.models.BillingModeType;
-import ae.etisalat.billingcomponent.R;
-import ae.etisalat.billingcomponent.library.models.BarChartEntry;
+import com.hani.barchartlib.R;
+import com.hani.barchartlib.library.models.BillingModeType;
+import com.hani.barchartlib.library.models.BarChartEntry;
 
 public class BarView extends ConstraintLayout {
 
