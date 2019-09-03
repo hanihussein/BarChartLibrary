@@ -25,22 +25,22 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<BarChartEntry> billBarChartEntries = new ArrayList<>();
 
         billBarChartEntries.add(new BarChartEntry("Jan", 1000, 700, getResources().getColor(R.color.green_bright)
-                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
+                , getResources().getColor(R.color.green_dark), BillingModeType.BAR_MAX_MODE_ACTIVE));
 
         billBarChartEntries.add(new BarChartEntry("Feb", 800, 300, getResources().getColor(R.color.green_bright)
-                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
+                , getResources().getColor(R.color.green_dark), BillingModeType.BAR_MAX_MODE_ACTIVE));
 
         billBarChartEntries.add(new BarChartEntry("Mar", 1400, 1200, getResources().getColor(R.color.green_bright)
-                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
+                , getResources().getColor(R.color.green_dark), BillingModeType.BAR_MAX_MODE_ACTIVE));
 
         billBarChartEntries.add(new BarChartEntry("Apri", 500, 500, getResources().getColor(R.color.green_bright)
-                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_INACTIVE));
+                , getResources().getColor(R.color.green_dark), BillingModeType.BAR_MAX_MODE_INACTIVE));
 
         billBarChartEntries.add(new BarChartEntry("May", 200, 160, getResources().getColor(R.color.green_bright)
-                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
+                , getResources().getColor(R.color.green_dark), BillingModeType.BAR_MAX_MODE_ACTIVE));
 
         billBarChartEntries.add(new BarChartEntry("Jun", 775, 700, getResources().getColor(R.color.green_bright)
-                , getResources().getColor(R.color.green_dark), BillingModeType.PAYMENT_MODE_ACTIVE));
+                , getResources().getColor(R.color.green_dark), BillingModeType.BAR_MAX_MODE_ACTIVE));
 
         barGraphComponentView.drawChart(billBarChartEntries);
 

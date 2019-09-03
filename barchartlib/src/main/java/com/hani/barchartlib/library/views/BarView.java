@@ -89,14 +89,14 @@ public class BarView extends ConstraintLayout {
 
         LayerDrawable layerDrawable = null;
 
-        if (barChartEntry.getBillingModeType() == BillingModeType.PAYMENT_MODE_ACTIVE) {
+        if (barChartEntry.getBillingModeType() == BillingModeType.BAR_MAX_MODE_ACTIVE) {
 
             progressBar.setBackgroundDrawable(backgroundDrawable);
 
             layerDrawable = new LayerDrawable(new Drawable[]{
                     progress});
 
-        } else if (barChartEntry.getBillingModeType() == BillingModeType.PAYMENT_MODE_INACTIVE) {
+        } else if (barChartEntry.getBillingModeType() == BillingModeType.BAR_MAX_MODE_INACTIVE) {
 
             layerDrawable = new LayerDrawable(new Drawable[]{
                     progress});

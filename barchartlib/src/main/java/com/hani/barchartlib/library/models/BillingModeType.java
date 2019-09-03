@@ -2,5 +2,5 @@ package com.hani.barchartlib.library.models;
 
 public enum BillingModeType {
 
-    PAYMENT_MODE_ACTIVE, PAYMENT_MODE_INACTIVE
+    BAR_MAX_MODE_ACTIVE, BAR_MAX_MODE_INACTIVE
 }
