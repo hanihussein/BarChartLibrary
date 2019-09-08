@@ -118,8 +118,15 @@ public class BarView extends ConstraintLayout {
                 if (BarClickListener != null)
                     BarClickListener.onBarClick(barChartEntry);
 
-                if (isHighlightClickBar)
+                if (isHighlightClickBar && !findViewById(R.id.pro_component_view).isSelected()) {
                     findViewById(R.id.pro_component_view).setBackgroundResource(R.drawable.ic_highlight);
+                    findViewById(R.id.pro_component_view).setSelected(true);
+
+                } else {
+                    findViewById(R.id.pro_component_view).setBackgroundResource(0);
+                    findViewById(R.id.pro_component_view).setSelected(false);
+                }
+
 
             }
         });

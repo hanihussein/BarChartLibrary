@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements BarView.BarClickL
 
         barGraphComponentView.setOnBarItemClickListener(this);
 
+        barGraphComponentView.setHighlightClickBar(true);
+
         barGraphComponentView.drawChart(billBarChartEntries);
 
     }
