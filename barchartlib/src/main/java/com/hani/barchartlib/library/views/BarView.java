@@ -7,8 +7,10 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.appcompat.widget.AppCompatTextView;
+
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,7 +22,7 @@ import com.hani.barchartlib.library.models.BarChartEntry;
 
 public class BarView extends ConstraintLayout {
 
-    public interface onBarClickListener {
+    public interface BarClickListener {
 
         void onBarClick(BarChartEntry barChartEntry);
     }
@@ -29,7 +31,9 @@ public class BarView extends ConstraintLayout {
 
     private AppCompatTextView title;
 
-    private onBarClickListener onBarClickListener;
+    private BarClickListener BarClickListener;
+
+    private Boolean isHighlightClickBar = false;
 
 
     public BarView(Context context) {
@@ -111,10 +115,11 @@ public class BarView extends ConstraintLayout {
             @Override
             public void onClick(View v) {
 
-                if (onBarClickListener != null)
-                    onBarClickListener.onBarClick(barChartEntry);
+                if (BarClickListener != null)
+                    BarClickListener.onBarClick(barChartEntry);
 
-                findViewById(R.id.pro_component_view).setBackgroundResource(R.drawable.ic_highlight);
+                if (isHighlightClickBar)
+                    findViewById(R.id.pro_component_view).setBackgroundResource(R.drawable.ic_highlight);
 
             }
         });
@@ -122,4 +127,11 @@ public class BarView extends ConstraintLayout {
 
     }
 
+    public void setHighlightClickBar(Boolean highlightClickBar) {
+        isHighlightClickBar = highlightClickBar;
+    }
+
+    public void setBarClickListener(BarClickListener barClickListener) {
+        this.BarClickListener = barClickListener;
+    }
 }

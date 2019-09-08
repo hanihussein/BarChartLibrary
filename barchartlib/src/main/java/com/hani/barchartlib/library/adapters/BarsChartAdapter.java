@@ -2,10 +2,9 @@ package com.hani.barchartlib.library.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.hani.barchartlib.library.models.BillingModeType;
 import com.hani.barchartlib.library.views.BarView;
 
 import java.util.ArrayList;
@@ -16,11 +15,16 @@ public class BarsChartAdapter extends RecyclerView.Adapter<BarsChartAdapter.Bill
 
     private ArrayList<BarChartEntry> billBarChartEntries;
     private int maxValue;
-    private BillingModeType billingModeType ;
+    private BarView.BarClickListener onBarClickListener;
+    private Boolean isHighlightClickBar ;
 
-    public BarsChartAdapter(ArrayList<BarChartEntry> billBarChartEntries, int maxValue) {
+    public BarsChartAdapter(ArrayList<BarChartEntry> billBarChartEntries, int maxValue , BarView.BarClickListener onBarClickListener,
+                             Boolean isHighlightClickBar
+    ) {
         this.billBarChartEntries = billBarChartEntries;
         this.maxValue = maxValue;
+        this.onBarClickListener = onBarClickListener;
+        this.isHighlightClickBar = isHighlightClickBar;
     }
 
     @NonNull
@@ -29,9 +33,13 @@ public class BarsChartAdapter extends RecyclerView.Adapter<BarsChartAdapter.Bill
 
         BarView barView = new BarView(viewGroup.getContext());
 
-        int width  = viewGroup.getWidth() / 6 ;
+        int width = viewGroup.getWidth() / 6;
 
         barView.setLayoutParams(new RecyclerView.LayoutParams(width, RecyclerView.LayoutParams.MATCH_PARENT));
+
+        barView.setBarClickListener(onBarClickListener);
+
+        barView.setHighlightClickBar(isHighlightClickBar);
 
         return new BillViewHolder(barView);
     }
@@ -42,9 +50,6 @@ public class BarsChartAdapter extends RecyclerView.Adapter<BarsChartAdapter.Bill
         viewHolder.onBind(billBarChartEntries.get(i));
     }
 
-    public void setBillingModeType(BillingModeType billingModeType) {
-        this.billingModeType = billingModeType;
-    }
 
     @Override
     public int getItemCount() {

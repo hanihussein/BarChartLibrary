@@ -1,9 +1,11 @@
 package com.hani.barchartlib.library.views;
 
 import android.content.Context;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,26 +14,19 @@ import java.util.ArrayList;
 
 import com.hani.barchartlib.R;
 import com.hani.barchartlib.library.adapters.BarsChartAdapter;
-import com.hani.barchartlib.library.models.BillingModeType;
 import com.hani.barchartlib.library.util.MathUtil;
 import com.hani.barchartlib.library.models.BarChartEntry;
 
 public class BarGraphComponentView extends ConstraintLayout {
 
-    public interface onBarClickListener {
-
-        void onBarClick(BarChartEntry barChartEntry);
-    }
 
     private RecyclerView rc_bills;
 
     private GraphBackgroundImageView graphBackgroundImageView;
 
-    private onBarClickListener onBarClickListener;
+    private BarView.BarClickListener BarClickListener;
 
-    private BillingModeType billingModeType;
-
-    private ArrayList<BarChartEntry> barChartEntries;
+    private Boolean isHighlightClickBar = false ;
 
     private int backgroundHorizontalLinesColor = 0xFF888888;
     private int backgroundHorizontalLinesWidth = 1;
@@ -84,37 +79,33 @@ public class BarGraphComponentView extends ConstraintLayout {
 
     public void drawChart(final ArrayList<BarChartEntry> barChartEntries) {
 
-        this.barChartEntries = barChartEntries;
+        if (barChartEntries != null && !barChartEntries.isEmpty()) {
 
-        int maxBarValue = 0;
-
-        for (BarChartEntry barChartEntry : barChartEntries) {
-
-            if (barChartEntry.getMaxValue() > maxBarValue)
-                maxBarValue = barChartEntry.getMaxValue();
-        }
-
-        int roundedMaxValue = MathUtil.round(maxBarValue + (maxBarValue * 10 / 100));
-
-        graphBackgroundImageView.setBackgroundDrawInfo(roundedMaxValue, backgroundHorizontalLinesColor,
-                backgroundHorizontalLinesWidth, backgroundValuesTextSize);
-        graphBackgroundImageView.invalidate();
-
-        rc_bills.setAdapter(new BarsChartAdapter(barChartEntries, roundedMaxValue));
-    }
-
-    public void setBillingModeType(BillingModeType billingModeType) {
-        this.billingModeType = billingModeType;
-
-        if (rc_bills.getAdapter() != null) {
+            int maxBarValue = 0;
 
             for (BarChartEntry barChartEntry : barChartEntries) {
 
-                barChartEntry.setBillingModeType(billingModeType);
+                if (barChartEntry.getMaxValue() > maxBarValue)
+                    maxBarValue = barChartEntry.getMaxValue();
             }
 
-            rc_bills.getAdapter().notifyDataSetChanged();
+            int roundedMaxValue = MathUtil.round(maxBarValue + (maxBarValue * 10 / 100));
+
+            graphBackgroundImageView.setBackgroundDrawInfo(roundedMaxValue, backgroundHorizontalLinesColor,
+                    backgroundHorizontalLinesWidth, backgroundValuesTextSize);
+            graphBackgroundImageView.invalidate();
+
+            rc_bills.setAdapter(new BarsChartAdapter(barChartEntries, roundedMaxValue, BarClickListener , isHighlightClickBar));
+
         }
 
+    }
+
+    public void setHighlightClickBar(Boolean highlightClickBar) {
+        isHighlightClickBar = highlightClickBar;
+    }
+
+    public void setOnBarItemClickListener(BarView.BarClickListener barClickListener) {
+        BarClickListener = barClickListener;
     }
 }

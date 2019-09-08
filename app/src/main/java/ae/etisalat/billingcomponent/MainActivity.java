@@ -1,19 +1,24 @@
 package ae.etisalat.billingcomponent;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.hani.barchartlib.library.models.BarChartEntry;
 import com.hani.barchartlib.library.models.BillingModeType;
 import com.hani.barchartlib.library.views.BarGraphComponentView;
+import com.hani.barchartlib.library.views.BarView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BarView.BarClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         final BarGraphComponentView barGraphComponentView = findViewById(R.id.bc_bills);
@@ -42,7 +47,16 @@ public class MainActivity extends AppCompatActivity {
         billBarChartEntries.add(new BarChartEntry("Jun", 775, 700, getResources().getColor(R.color.green_bright)
                 , getResources().getColor(R.color.green_dark), BillingModeType.BAR_MAX_MODE_ACTIVE));
 
+        barGraphComponentView.setOnBarItemClickListener(this);
+
         barGraphComponentView.drawChart(billBarChartEntries);
 
+    }
+
+
+    @Override
+    public void onBarClick(BarChartEntry barChartEntry) {
+
+        Toast.makeText(this, barChartEntry.getTitle(), Toast.LENGTH_LONG).show();
     }
 }
